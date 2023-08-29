@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.spacer}>
-        <strong>Je t`&apos;`aime Alixan</strong>
+        <strong>Je t&apos;aime Alixan</strong>
       </div>
       <div ref={gallery} className={styles.gallery}>
         <Column images={[images[0], images[1], images[2]]} y={y}/>
