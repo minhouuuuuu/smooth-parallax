@@ -194,7 +194,7 @@ export default function Home() {
               />
           </div>
           <div className={styles.title}>
-            <h1>Floating Images Gallery</h1>
+            <h1>Demo website</h1>
             <p>Next.js and GSAP</p>
           </div>
         </div>
