@@ -12,7 +12,7 @@
     background: rgb(45, 45, 45);
     position: relative;
     display: flex;
-    gap: 2vw;
+    flex-wrap: wrap;
     padding: 2vw;
     box-sizing: border-box;
     overflow: hidden;
@@ -22,11 +22,13 @@
         width: 25%;
         min-width: 250px;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         gap: 2vw;
         .imageContainer{
             height: 100%;
-            width: 100%;
+            width: 90%;
             position: relative;
             border-radius: 1vw;
             overflow: hidden;
