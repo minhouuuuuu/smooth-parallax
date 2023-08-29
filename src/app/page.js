@@ -134,14 +134,20 @@ export default function Home() {
       setDimension({width: window.innerWidth, height: window.innerHeight})
     }
 
-    window.addEventListener("resize", resize)
+    if (gallery.current) {
+      gallery.current.addEventListener('resize', resize);
+    }
+
     requestAnimationFrame(raf);
     resize();
 
+
     return () => {
-      window.removeEventListener("resize", resize);
-    }
-  }, [])
+      if (gallery.current) {
+        gallery.current.removeEventListener('resize', resize);
+      }
+    };
+  }, []);
 
   return (
     <main className={styles.main}>
