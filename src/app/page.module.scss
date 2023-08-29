@@ -30,8 +30,12 @@
             position: relative;
             border-radius: 1vw;
             overflow: hidden;
+            transition: transform 0.4s ease-in-out;
             img{
                 object-fit: cover;
+            }
+            &:hover {
+                transform: scale(1.05); /* Scale down the image to 90% on hover */
             }
         }
         .clickable{
