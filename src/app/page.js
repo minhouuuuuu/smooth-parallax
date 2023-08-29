@@ -6,18 +6,54 @@ import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 const images = [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.jpg",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.jpg",
-  "10.jpg",
-  "11.jpg",
-  "12.jpg",
+  {
+    src: "1.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "2.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "3.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "4.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "5.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "6.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "7.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "8.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "9.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "10.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "11.jpg",
+    url: "https://www.c2montreal.com/"
+  },
+  {
+    src: "12.jpg",
+    url: "https://www.c2montreal.com/"
+  },
 ]
 
 export default function Home() {
@@ -72,23 +108,36 @@ export default function Home() {
   )
 }
 
-const Column = ({images, y}) => {
+const Column = ({ images, y }) => {
+  const handleDivClick = (url) => {
+    window.open(url, '_blank');
+  };
+
   return (
-    <motion.div 
-      className={styles.column}
-      style={{y}}
-      >
-      {
-        images.map( (src, i) => {
-          return <div key={i} className={styles.imageContainer}>
-            <Image 
-              src={`/images/${src}`}
-              alt='image'
-              fill
-            />
-          </div>
-        })
-      }
+    <motion.div className={styles.column} style={{ y }}>
+      {images.map((image, i) => {
+        // Check if the image object is defined and has 'src' and 'url' properties
+        if (image && image.src && image.url) {
+          const { src, url } = image;
+
+          return (
+            <div
+              key={i}
+              className={`${styles.imageContainer} ${styles.clickable}`}
+              onClick={() => handleDivClick(url)}
+            >
+              <Image src={`/images/${src}`} alt='image' fill />
+            </div>
+          );
+        } else {
+          // Handle cases where 'src' or 'url' is missing
+          return (
+            <div key={i} className={styles.imageContainer}>
+              <p>Image missing src or url</p>
+            </div>
+          );
+        }
+      })}
     </motion.div>
-  )
-}
+  );
+};
