@@ -1,3 +1,6 @@
+/*
+$layout-breakpoint-small: 768px;
+*/
 .spacer{
     background-color: black;
     color: white;
@@ -118,6 +121,7 @@
             &:hover {
                 transform: scale(1.05); /* Scale down the image to 90% on hover */
             }
+
         }
         .clickable{
             cursor: pointer;
@@ -136,3 +140,10 @@
         }
     }
 }
+/*
+@media (min-width: $layout-breakpoint-small) {
+    .hide-extra-small {
+      display: none;
+    }
+  }
+  */
